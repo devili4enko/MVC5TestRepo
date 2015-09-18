@@ -1,0 +1,34 @@
+﻿@model MVC5TestRepo.Models.GuestResponse
+
+@{
+    ViewBag.Title = "Reserve";
+}
+
+<h2>Reserve a sit</h2>
+
+<div class="panel panel-success">
+    <div class="panel-heading">Welcome</div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Will you be here?")
+                @Html.DropDownListFor(m => m.Attend, new[]
+                {
+                    new SelectListItem{Selected = false, Text = "Sure I'll be there", Value = bool.TrueString},
+                    new SelectListItem{Selected = false, Text = "Sadly but i cant come", Value = bool.FalseString}
+                })
+            </div>
+            <div class="text-center"><input type="submit" class="btn btn-success text-center" value="Submit" /></div>
+        }
+    </div>
+</div>

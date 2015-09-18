@@ -1,0 +1,20 @@
+﻿@model MVC5TestRepo.Models.GuestResponse
+
+@{
+    ViewBag.Title = "Thanks";
+}
+
+<h2>Thanks @Model.Name</h2>
+
+<div class="lead">
+    @if (Model.Attend == true)
+    {
+        @: Greate we'll meet on out party
+        @Html.Action("Attendes", "Guest")
+    }
+    else
+    {
+       @: Sorry that you can't
+    }
+</div>
+
