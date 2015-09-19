@@ -16,12 +16,22 @@ namespace MVC5TestRepo.Controllers
             return PartyRepository.GuestResponses.Where(x => x.Attend == true).ToList();
         }
 
+        public GuestResponse GetAttendee(string name)
+        {
+            return PartyRepository.GuestResponses.FirstOrDefault(x => x.Attend == true && x.Name==name);
+        }
+
         public void PostResponse(GuestResponse response)
         {
             if (ModelState.IsValid)
             {
                 PartyRepository.Add(response);
             }
+        }
+
+        public void DeleteAll()
+        {
+            PartyRepository.RemoveAll();
         }
     }
 }

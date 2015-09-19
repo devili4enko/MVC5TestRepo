@@ -13,7 +13,7 @@ namespace MVC5TestRepo.Models
 
         static PartyRepository()
         {
-            _guestResponses=new Dictionary<string, GuestResponse>();
+            _guestResponses = new Dictionary<string, GuestResponse>();
             _guestResponses.Add("Alex", new GuestResponse { Name = "Alex", Attend = true, Email = "alex@gmail.com" });
             _guestResponses.Add("Dan", new GuestResponse { Name = "Dan", Attend = false, Email = "Dan@gmail.com" });
             _guestResponses.Add("Eva", new GuestResponse { Name = "Eva", Attend = true, Email = "Eva@gmail.com" });
@@ -33,6 +33,11 @@ namespace MVC5TestRepo.Models
             }
         }
 
-        public static IEnumerable<GuestResponse> GuestResponses { get { return _guestResponses.Values; }}
+        public static IEnumerable<GuestResponse> GuestResponses { get { return _guestResponses.Values; } }
+
+        public static void RemoveAll()
+        {
+            _guestResponses.Clear();
+        }
     }
 }
