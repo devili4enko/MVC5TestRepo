@@ -27,7 +27,7 @@ namespace MVC5TestRepo.Controllers
 
         public Product GetProduct(int id)
         {
-            return _repository.Products.Where(p => p.Id == id).FirstOrDefault();
+            return _repository.Products.FirstOrDefault(p => p.Id == id);
         }
         public async Task<int> PostProduct(Product product)
         {
