@@ -203,6 +203,7 @@
     <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PrepController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\RoutesTestController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
