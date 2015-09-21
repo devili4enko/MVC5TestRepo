@@ -1,4 +1,7 @@
-﻿using Microsoft.Owin;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
+using MVC5TestRepo.Models.SportStoreIdentity;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(MVC5TestRepo.Startup))]
@@ -8,7 +11,15 @@ namespace MVC5TestRepo
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            app.CreatePerOwinContext<StoreIdentityDbContext>(StoreIdentityDbContext.Create);
+            app.CreatePerOwinContext<StoreRoleManager>(StoreRoleManager.Create);
+            app.CreatePerOwinContext<StoreUserManager>(StoreUserManager.Create);
+
+            app.UseCookieAuthentication(new CookieAuthenticationOptions()
+            {
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie
+            });
+            //ConfigureAuth(app);
         }
     }
 }
